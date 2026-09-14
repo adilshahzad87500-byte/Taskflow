@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TaskFlow - Modern Task & Productivity Manager</title>
+  <meta name="description" content="TaskFlow is a modern, light-first personal task and productivity manager. Organize, prioritize, and accomplish your daily tasks seamlessly.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <!-- Google Fonts: Plus Jakarta Sans for ultra-modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== 1. SPLASH SCREEN ==================== -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <img src="assets/images/logo.png" alt="TaskFlow Logo" class="splash-logo">
+        <div class="splash-glow"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. ONBOARDING SCREEN (IMAGE 1) ==================== -->
+  <div id="onboardingScreen" class="onboarding-screen hidden">
+    <div class="onboarding-container">
+      <!-- Top Bar: App Version Badge on Left & Skip on Right -->
+      <div class="onboarding-top-bar">
+        <div class="app-version-pill">
+          <span class="live-status-dot"></span>
+          <span>TaskFlow v2.4</span>
+        </div>
+        <button id="skipOnboardingBtn" class="onboarding-skip-btn" type="button">Skip</button>
+      </div>
+
+      <!-- Hero Section: 3D Productivity Illustration in Circle -->
+      <div class="onboarding-hero-wrapper">
+        <div class="onboarding-hero-circle">
+          <img src="assets/images/onboarding_hero.jpg" alt="Organize your work and life" class="onboarding-hero-img">
+        </div>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="onboarding-carousel-dots">
+        <span class="carousel-dot-pill active"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
+      </div>
+
+      <!-- Text & Action Content -->
+      <div class="onboarding-content-wrap">
+        <h1 class="onboarding-title">Organize your work and life, effortlessly.</h1>
+        <p class="onboarding-description">
+          Plan your tasks, set priorities, and track your daily streaks with TaskFlow's intuitive system.
+        </p>
+
+        <button id="getStartedBtn" class="onboarding-cta-btn" type="button">
+          <span>Get Started</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <div class="onboarding-login-row">
+          <span>Already have an account?</span>
+          <button id="goToSignInFromOnboarding" class="onboarding-link-btn" type="button">Log In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTH: SIGN UP SCREEN ==================== -->
+  <div id="signupScreen" class="auth-screen hidden">
+    <!-- Ambient glowing background orbs -->
+    <div class="auth-ambient-glow" aria-hidden="true">
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
+      <div class="glow-orb glow-orb-3"></div>
+    </div>
+
+    <!-- Auth Floating Top Bar -->
+    <header class="auth-topbar">
+      <div class="auth-brand">
+        <img src="assets/images/logo.png" alt="TaskFlow" class="auth-logo">
+        <span class="auth-brand-name">TaskFlow</span>
+        <span class="auth-version-pill">v2.4 Pro</span>
+      </div>
+      <button type="button" class="auth-theme-toggle" id="authThemeToggleSignUp" aria-label="Toggle light and dark mode">
+        <svg class="theme-sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="theme-moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </header>
+
+    <!-- Split Screen Main Wrapper -->
+    <div class="auth-main-wrapper">
+      <div class="auth-grid-container">
+
+        <!-- Left Column: Desktop Visual Showcase -->
+        <div class="auth-showcase-column">
+          <div class="showcase-badge">
+            <span class="badge-pulse"></span>
+            <span>Effortless Task Management</span>
+          </div>
+          <h1 class="showcase-heading">
+            Organize smarter.<br>
+            <span class="showcase-gradient-text">Execute faster.</span>
+          </h1>
+          <p class="showcase-subtext">
+            Join thousands of professionals, students, and creators who manage high-impact tasks and keep unstoppable streaks.
+          </p>
+
+          <!-- Floating Glass Cards Showcase -->
+          <div class="showcase-cards-stack">
+            <!-- Glass Card 1: Streak -->
+            <div class="glass-preview-card streak-card">
+              <div class="streak-icon-wrap">🔥</div>
+              <div class="streak-info">
+                <span class="streak-title">7-Day Streak Active!</span>
+                <span class="streak-meta">94% on-time completion this week</span>
+              </div>
+              <span class="streak-pill">Top 5%</span>
+            </div>
+
+            <!-- Glass Card 2: Interactive Task Preview -->
+            <div class="glass-preview-card task-card">
+              <div class="task-check-circle">✓</div>
+              <div class="task-info">
+                <span class="task-title">Review system tokens & UX flow</span>
+                <span class="task-due">Due Today • 4:00 PM</span>
+              </div>
+              <span class="task-priority-pill">HIGH</span>
+            </div>
+
+            <!-- Glass Card 3: User Quote / Metric -->
+            <div class="glass-preview-card stat-card-showcase">
+              <div class="stat-number">12,800+</div>
+              <div class="stat-label">Tasks completed this month with zero friction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Frosted Glass Form Card -->
+        <div class="auth-form-column">
+          <div class="auth-glass-card">
+            <!-- Modern Segmented Pill Switcher -->
+            <div class="auth-segmented-nav">
+              <button type="button" class="auth-segment-btn" id="tabGoToSignIn">Sign In</button>
+              <button type="button" class="auth-segment-btn active" id="tabStaySignUp">Create Account</button>
+            </div>
+
+            <div class="auth-card-header">
+              <h2 class="auth-card-title">Create your account ✨</h2>
+              <p class="auth-card-subtitle">Get started with your free personal workspace in seconds.</p>
+            </div>
+
+            <!-- Social / Quick Access -->
+            <div class="auth-social-group">
+              <button type="button" class="auth-social-btn btn-google-login">
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+            </div>
+
+            <div class="auth-divider">
+              <span>or sign up with email</span>
+            </div>
+
+            <!-- Alert Notification Box -->
+            <div id="signupAlert" class="auth-alert hidden">
+              <span id="signupAlertText"></span>
+              <button type="button" id="signupAlertActionBtn" class="auth-alert-btn hidden">Sign In</button>
+            </div>
+
+            <form id="signupForm" class="auth-form" novalidate>
+              <div class="auth-field">
+                <label for="signupNameInput" class="auth-label">Full Name</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <input type="text" id="signupNameInput" class="auth-input" placeholder="e.g. Muhammad Adil" required autocomplete="name">
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="signupEmailOrPhoneInput" class="auth-label">Email or Phone Number</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <input type="text" id="signupEmailOrPhoneInput" class="auth-input" placeholder="name@example.com or +92 300 1234567" required autocomplete="username">
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="signupPasswordInput" class="auth-label">Password</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <input type="password" id="signupPasswordInput" class="auth-input" placeholder="Create a strong password" required autocomplete="new-password">
+                  <button type="button" class="auth-pw-toggle" data-target="signupPasswordInput" aria-label="Toggle password visibility">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="signupConfirmPasswordInput" class="auth-label">Confirm Password</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <input type="password" id="signupConfirmPasswordInput" class="auth-input" placeholder="Confirm your password" required autocomplete="new-password">
+                  <button type="button" class="auth-pw-toggle" data-target="signupConfirmPasswordInput" aria-label="Toggle password visibility">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" id="submitSignupBtn" class="auth-cta-btn">
+                <span>Create Free Account</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </form>
+
+            <div class="auth-bottom-row">
+              <span>Already have an account?</span>
+              <button type="button" id="goToSignInBtn" class="auth-inline-link">Sign In</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTH: SIGN IN SCREEN ==================== -->
+  <div id="signinScreen" class="auth-screen hidden">
+    <!-- Ambient glowing background orbs -->
+    <div class="auth-ambient-glow" aria-hidden="true">
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
+      <div class="glow-orb glow-orb-3"></div>
+    </div>
+
+    <!-- Auth Floating Top Bar -->
+    <header class="auth-topbar">
+      <div class="auth-brand">
+        <img src="assets/images/logo.png" alt="TaskFlow" class="auth-logo">
+        <span class="auth-brand-name">TaskFlow</span>
+        <span class="auth-version-pill">v2.4 Pro</span>
+      </div>
+      <button type="button" class="auth-theme-toggle" id="authThemeToggleSignIn" aria-label="Toggle light and dark mode">
+        <svg class="theme-sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="theme-moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </header>
+
+    <!-- Split Screen Main Wrapper -->
+    <div class="auth-main-wrapper">
+      <div class="auth-grid-container">
+
+        <!-- Left Column: Desktop Visual Showcase -->
+        <div class="auth-showcase-column">
+          <div class="showcase-badge">
+            <span class="badge-pulse"></span>
+            <span>Welcome Back</span>
+          </div>
+          <h1 class="showcase-heading">
+            Your tasks, goals, &amp;<br>
+            <span class="showcase-gradient-text">focus await you.</span>
+          </h1>
+          <p class="showcase-subtext">
+            Log back in to review your priority roadmap, check off pending action items, and keep your productivity streak alive.
+          </p>
+
+          <!-- Floating Glass Cards Showcase -->
+          <div class="showcase-cards-stack">
+            <!-- Glass Card 1: Streak -->
+            <div class="glass-preview-card streak-card">
+              <div class="streak-icon-wrap">⚡</div>
+              <div class="streak-info">
+                <span class="streak-title">Daily Momentum</span>
+                <span class="streak-meta">Ready to accomplish your today's goals</span>
+              </div>
+              <span class="streak-pill">On Track</span>
+            </div>
+
+            <!-- Glass Card 2: Interactive Task Preview -->
+            <div class="glass-preview-card task-card">
+              <div class="task-check-circle">✓</div>
+              <div class="task-info">
+                <span class="task-title">Review sprint deliverables</span>
+                <span class="task-due">Scheduled for Today</span>
+              </div>
+              <span class="task-priority-pill">HIGH</span>
+            </div>
+
+            <!-- Glass Card 3: User Quote / Metric -->
+            <div class="glass-preview-card stat-card-showcase">
+              <div class="user-avatar-pill">
+                <span class="avatar-letter">MA</span>
+                <div class="user-pill-text">
+                  <strong>Muhammad Adil</strong>
+                  <small>Productivity Champion</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Frosted Glass Form Card -->
+        <div class="auth-form-column">
+          <div class="auth-glass-card">
+            <!-- Modern Segmented Pill Switcher -->
+            <div class="auth-segmented-nav">
+              <button type="button" class="auth-segment-btn active" id="tabStaySignIn">Sign In</button>
+              <button type="button" class="auth-segment-btn" id="tabGoToSignUp">Create Account</button>
+            </div>
+
+            <div class="auth-card-header">
+              <h2 class="auth-card-title">Welcome back 👋</h2>
+              <p class="auth-card-subtitle">Sign in to your personal workspace and tasks.</p>
+            </div>
+
+            <!-- Social / Quick Access -->
+            <div class="auth-social-group">
+              <button type="button" class="auth-social-btn btn-google-login">
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+            </div>
+
+            <div class="auth-divider">
+              <span>or sign in with credentials</span>
+            </div>
+
+            <!-- Alert Notification Box -->
+            <div id="signinAlert" class="auth-alert hidden">
+              <span id="signinAlertText"></span>
+            </div>
+
+            <form id="signinForm" class="auth-form" novalidate>
+              <div class="auth-field">
+                <label for="signinEmailOrPhoneInput" class="auth-label">Email or Phone Number</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <input type="text" id="signinEmailOrPhoneInput" class="auth-input" required autocomplete="username">
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field-header">
+                  <label for="signinPasswordInput" class="auth-label">Password</label>
+                  <button type="button" id="forgotPasswordBtn" class="auth-forgot-link">Forgot Password?</button>
+                </div>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <input type="password" id="signinPasswordInput" class="auth-input" placeholder="Enter your password" required autocomplete="current-password">
+                  <button type="button" class="auth-pw-toggle" data-target="signinPasswordInput" aria-label="Toggle password visibility">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="auth-remember-checkbox">
+                  <input type="checkbox" id="rememberMeCheck" checked>
+                  <span class="custom-chk-box"></span>
+                  <span>Keep me signed in</span>
+                </label>
+              </div>
+
+              <button type="submit" id="submitSigninBtn" class="auth-cta-btn">
+                <span>Sign In to Workspace</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </form>
+
+            <div class="auth-bottom-row">
+              <span>Don't have an account?</span>
+              <button type="button" id="goToSignUpBtn" class="auth-inline-link">Create Account</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTH: DEDICATED FORGOT PASSWORD SCREEN ==================== -->
+  <div id="forgotPasswordScreen" class="auth-screen hidden">
+    <!-- Ambient glowing background orbs -->
+    <div class="auth-ambient-glow" aria-hidden="true">
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
+      <div class="glow-orb glow-orb-3"></div>
+    </div>
+
+    <!-- Auth Floating Top Bar -->
+    <header class="auth-topbar">
+      <div class="auth-brand">
+        <img src="assets/images/logo.png" alt="TaskFlow" class="auth-logo">
+        <span class="auth-brand-name">TaskFlow</span>
+        <span class="auth-version-pill">v2.4 Pro</span>
+      </div>
+      <button type="button" class="auth-theme-toggle" id="authThemeToggleForgot" aria-label="Toggle light and dark mode">
+        <svg class="theme-sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="theme-moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </header>
+
+    <!-- Split Screen Main Wrapper -->
+    <div class="auth-main-wrapper">
+      <div class="auth-grid-container">
+
+        <!-- Left Column: Desktop Visual Showcase -->
+        <div class="auth-showcase-column">
+          <div class="showcase-badge">
+            <span class="badge-pulse"></span>
+            <span>Account Security</span>
+          </div>
+          <h1 class="showcase-heading">
+            Seamless account<br>
+            <span class="showcase-gradient-text">recovery &amp; reset.</span>
+          </h1>
+          <p class="showcase-subtext">
+            Easily recover your password with our verified instant security code. Your workspace data, tasks, and streaks will remain completely safe.
+          </p>
+
+          <!-- Floating Security Cards -->
+          <div class="showcase-cards-stack">
+            <div class="glass-preview-card streak-card">
+              <div class="streak-icon-wrap">🔒</div>
+              <div class="streak-info">
+                <span class="streak-title">Secure Encrypted Session</span>
+                <span class="streak-meta">Protected with local tamper-proof encryption</span>
+              </div>
+              <span class="streak-pill">Verified</span>
+            </div>
+
+            <div class="glass-preview-card task-card">
+              <div class="task-check-circle">🔑</div>
+              <div class="task-info">
+                <span class="task-title">One-Time Security OTP Code</span>
+                <span class="task-due">Instant simulated verification</span>
+              </div>
+              <span class="task-priority-pill">ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Frosted Glass Form Card -->
+        <div class="auth-form-column">
+          <div class="auth-glass-card">
+            <!-- Back to Sign In Link Header -->
+            <button type="button" class="auth-back-nav" id="backToSignInFromForgotBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>Back to Sign In</span>
+            </button>
+
+            <div class="auth-card-header">
+              <div class="auth-header-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h2 class="auth-card-title">Reset Password</h2>
+              <p class="auth-card-subtitle">Enter your registered email or phone number to verify and update your password.</p>
+            </div>
+
+            <!-- Alert Notification Box -->
+            <div id="forgotAlert" class="auth-alert hidden">
+              <span id="forgotAlertText"></span>
+            </div>
+
+            <form id="forgotPasswordForm" class="auth-form" novalidate>
+              <div class="auth-field" id="forgotStep1Field">
+                <label for="forgotEmailOrPhoneInput" class="auth-label">Registered Email or Phone</label>
+                <div class="auth-input-wrap">
+                  <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <input type="text" id="forgotEmailOrPhoneInput" class="auth-input" placeholder="e.g. name@example.com or phone" required>
+                </div>
+              </div>
+
+              <div id="forgotOtpAndNewPassArea" class="hidden">
+                <!-- Verification code banner -->
+                <div class="auth-otp-badge">
+                  <span>Simulated Security Code: </span>
+                  <strong id="generatedOtpDisplay">4829</strong>
+                </div>
+
+                <div class="auth-field">
+                  <label for="forgotOtpInput" class="auth-label">Enter 4-Digit Security Code</label>
+                  <div class="auth-input-wrap">
+                    <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <input type="text" id="forgotOtpInput" class="auth-input text-center font-bold tracking-widest" placeholder="• • • •" maxlength="4">
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label for="forgotNewPasswordInput" class="auth-label">New Strong Password</label>
+                  <div class="auth-input-wrap">
+                    <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <input type="password" id="forgotNewPasswordInput" class="auth-input" placeholder="New strong password">
+                    <button type="button" class="auth-pw-toggle" data-target="forgotNewPasswordInput" aria-label="Toggle password">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label for="forgotConfirmPasswordInput" class="auth-label">Confirm New Password</label>
+                  <div class="auth-input-wrap">
+                    <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <input type="password" id="forgotConfirmPasswordInput" class="auth-input" placeholder="Confirm new password">
+                    <button type="button" class="auth-pw-toggle" data-target="forgotConfirmPasswordInput" aria-label="Toggle password">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="auth-actions-group">
+                <button type="submit" id="submitForgotBtn" class="auth-cta-btn">
+                  <span>Verify &amp; Continue</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+                <button type="button" id="cancelForgotBtn" class="auth-cancel-link-btn">Cancel</button>
+              </div>
+            </form>
+
+            <div class="auth-bottom-row">
+              <span>Remembered your password?</span>
+              <button type="button" id="forgotGoToSignInBtn" class="auth-inline-link">Sign In</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Fallback/alias container for legacy modal handlers -->
+  <div id="forgotPasswordModal" class="hidden"></div>
+
+  <!-- ==================== MAIN APPLICATION SHELL ==================== -->
+  <div id="appShell" class="app-shell hidden">
+
+    <!-- Desktop Navigation Sidebar (Visible on screens >= 992px) -->
+    <aside class="desktop-sidebar" id="desktopSidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand-wrapper">
+          <div class="sidebar-brand">
+            <img src="assets/images/logo.png" alt="TaskFlow Logo" class="brand-logo">
+            <div class="brand-text">
+              <span class="brand-name">TaskFlow</span>
+              <span class="brand-tag">Workspace</span>
+            </div>
+          </div>
+          <div class="workspace-pill-badge">
+            <span class="pulse-dot"></span>
+            <span>Personal Pro</span>
+          </div>
+        </div>
+
+        <button id="sidebarQuickAddBtn" class="btn btn-primary btn-block sidebar-add-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>New Task</span>
+        </button>
+
+        <!-- Sidebar Navigation Menu -->
+        <nav class="sidebar-nav">
+          <button class="sidebar-nav-item active" data-target="viewHome" id="sideNavHome">
+            <div class="nav-item-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              <span>Dashboard</span>
+            </div>
+          </button>
+
+          <button class="sidebar-nav-item" data-target="viewTasks" id="sideNavTasks">
+            <div class="nav-item-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              <span>All Tasks</span>
+            </div>
+            <span class="sidebar-badge" id="sidebarTasksCount">0</span>
+          </button>
+
+          <button class="sidebar-nav-item" data-target="viewCategories" id="sideNavCategories">
+            <div class="nav-item-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Categories</span>
+            </div>
+            <span class="sidebar-badge-subtle" id="sidebarCatsCount">6</span>
+          </button>
+
+          <button class="sidebar-nav-item" data-target="viewProfile" id="sideNavProfile">
+            <div class="nav-item-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>My Profile</span>
+            </div>
+          </button>
+
+          <button class="sidebar-nav-item" data-target="viewSettings" id="sideNavSettings">
+            <div class="nav-item-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Settings</span>
+            </div>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Bottom Profile Quick Card in Sidebar -->
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card" id="sidebarUserCard" title="Open profile">
+          <div class="user-avatar avatar-sm">
+            <span class="avatar-initials user-initials-display">MA</span>
+            <img class="avatar-img user-img-display hidden" src="" alt="User Avatar">
+            <span class="avatar-status"></span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name user-name-display">Muhammad Adil</span>
+            <span class="sidebar-user-role user-role-display">Manage profile &rarr;</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Application Column -->
+    <div class="app-main-area">
+
+      <!-- Top Modern App Bar / Header -->
+      <header class="app-header">
+        <div class="header-main-row">
+          
+          <!-- Mobile Brand Display (Visible on small screens) -->
+          <div class="header-mobile-brand">
+            <img src="assets/images/logo.png" alt="TaskFlow Logo" class="brand-logo-mobile">
+            <div class="mobile-brand-meta">
+              <span class="mobile-brand-name">TaskFlow</span>
+              <span class="mobile-active-view-pill" id="mobileHeaderViewPill">Dashboard</span>
+            </div>
+          </div>
+
+          <!-- Desktop Context / Breadcrumb Heading (Visible on desktop) -->
+          <div class="header-desktop-context">
+            <div class="header-breadcrumbs">
+              <span class="breadcrumb-item">TaskFlow</span>
+              <span class="breadcrumb-divider">/</span>
+              <span class="breadcrumb-current" id="headerBreadcrumbCurrent">Dashboard</span>
+            </div>
+            <div class="header-title-wrap">
+              <h2 class="header-context-title" id="headerContextTitle">Good Afternoon 👋</h2>
+              <p class="header-context-subtitle" id="headerContextSubtitle">Here's your productivity overview for today.</p>
+            </div>
+          </div>
+
+          <!-- Quick Global Search Trigger Pill -->
+          <div class="header-search-wrapper">
+            <button type="button" class="header-search-pill" id="headerSearchPill" aria-label="Search tasks">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span class="header-search-placeholder">Quick search tasks...</span>
+              <kbd class="header-search-shortcut">⌘K</kbd>
+            </button>
+          </div>
+
+          <!-- Top Navigation Right Action Center -->
+          <div class="header-actions">
+            <!-- Current Date Chip -->
+            <div class="header-date-chip" id="headerDateChip" title="Today's date">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span id="dynamicDateBadge">Today</span>
+            </div>
+
+            <!-- Notification Bell -->
+            <div class="notification-wrapper">
+              <button id="notifBellBtn" class="icon-btn notif-icon-btn" aria-label="Notifications" title="Notifications">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span id="notifBadge" class="notif-badge">3</span>
+              </button>
+
+              <!-- Notifications Dropdown -->
+              <div id="notifDropdown" class="notif-dropdown hidden">
+                <div class="notif-header">
+                  <div class="notif-title-row">
+                    <h4>Notifications</h4>
+                    <span class="notif-count-pill">3 new</span>
+                  </div>
+                  <button id="clearNotifsBtn" class="text-sm-btn">Clear All</button>
+                </div>
+                <ul id="notifList" class="notif-list">
+                  <!-- Injected by JS -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- User Avatar & Quick Profile Dropdown -->
+            <div class="user-avatar-wrapper">
+              <div class="user-avatar" id="userAvatarBtn" title="Account Menu" role="button" tabindex="0">
+                <span class="avatar-initials user-initials-display">MA</span>
+                <img class="avatar-img user-img-display hidden" src="" alt="User Avatar">
+                <span class="avatar-status"></span>
+              </div>
+
+              <!-- Sleek User Quick Menu Dropdown -->
+              <div id="userNavDropdown" class="user-nav-dropdown hidden">
+                <div class="dropdown-user-header">
+                  <div class="dropdown-user-avatar user-avatar avatar-sm">
+                    <span class="avatar-initials user-initials-display">MA</span>
+                    <img class="avatar-img user-img-display hidden" src="" alt="User Avatar">
+                  </div>
+                  <div class="dropdown-user-details">
+                    <span class="dropdown-name user-name-display">Muhammad Adil</span>
+                    <span class="dropdown-email user-email-display">es0155@taskflow.io</span>
+                    <span class="dropdown-status-badge">● Active Workspace</span>
+                  </div>
+                </div>
+                <div class="dropdown-menu-divider"></div>
+                <div class="dropdown-menu-list">
+                  <button type="button" class="dropdown-item" id="dropdownProfileBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>My Profile</span>
+                  </button>
+                  <button type="button" class="dropdown-item" id="dropdownTasksBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line></svg>
+                    <span>Task Manager</span>
+                  </button>
+                  <button type="button" class="dropdown-item" id="dropdownSettingsBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span>Settings</span>
+                  </button>
+                  <div class="dropdown-menu-divider"></div>
+                  <button type="button" class="dropdown-item dropdown-signout-btn" id="dropdownSignOutBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    <span>Sign Out</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Views Container -->
+      <main class="app-main-content">
+
+      <!-- ==================== VIEW 1: HOME / DASHBOARD ==================== -->
+      <section id="viewHome" class="app-view active">
+        
+        <!-- Today's Overview Stats -->
+        <div class="section-block">
+          <div class="section-title-row">
+            <h3 class="section-title">Today's Overview</h3>
+            <span class="current-date-badge" id="currentDateBadge">Today</span>
+          </div>
+
+          <div class="overview-grid">
+            <!-- Total Tasks Card -->
+            <div class="stat-card stat-total" data-filter="all">
+              <div class="stat-icon-wrap icon-purple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Total Tasks</span>
+                <span class="stat-value" id="statTotal">0</span>
+              </div>
+            </div>
+
+            <!-- Completed Tasks Card -->
+            <div class="stat-card stat-completed" data-filter="completed">
+              <div class="stat-icon-wrap icon-green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Completed</span>
+                <span class="stat-value" id="statCompleted">0</span>
+              </div>
+            </div>
+
+            <!-- Pending Tasks Card -->
+            <div class="stat-card stat-pending" data-filter="pending">
+              <div class="stat-icon-wrap icon-amber">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Pending</span>
+                <span class="stat-value" id="statPending">0</span>
+              </div>
+            </div>
+
+            <!-- High Priority Card -->
+            <div class="stat-card stat-high" data-filter="high">
+              <div class="stat-icon-wrap icon-red">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">High Priority</span>
+                <span class="stat-value" id="statHigh">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Responsive Split: Main Tasks Column & Widget Rail -->
+        <div class="dashboard-layout-row">
+          <div class="dashboard-main-column">
+            <!-- Search Bar -->
+            <div class="search-container">
+              <div class="search-input-wrapper">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="taskSearchInput" placeholder="Search tasks..." autocomplete="off">
+                <button id="clearSearchBtn" class="clear-search-btn hidden" aria-label="Clear search">✕</button>
+              </div>
+            </div>
+
+            <!-- Categories Filter Row -->
+            <div class="categories-scroll-wrapper">
+              <div class="category-pills" id="categoryPillsContainer">
+                <button class="cat-pill active" data-category="All">All <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Work">Work <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Personal">Personal <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Study">Study <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Shopping">Shopping <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Project">Project <span class="cat-count">0</span></button>
+                <button class="cat-pill" data-category="Other">Other <span class="cat-count">0</span></button>
+              </div>
+            </div>
+
+            <!-- Status Filter Tabs -->
+            <div class="status-filters-row">
+              <button class="status-chip active" data-status="all">All Tasks</button>
+              <button class="status-chip" data-status="today">Today</button>
+              <button class="status-chip" data-status="upcoming">Upcoming</button>
+              <button class="status-chip" data-status="completed">Completed</button>
+              <button class="status-chip" data-status="pending">Pending</button>
+              <button class="status-chip" data-status="high">High Priority</button>
+            </div>
+
+            <!-- Active Tasks List -->
+            <div class="task-list-section">
+              <div class="task-list-header">
+                <h4 class="list-heading" id="currentListHeading">All Tasks</h4>
+                <span class="badge badge-subtle" id="taskCountBadge">0 tasks</span>
+              </div>
+
+              <div id="taskListContainer" class="task-cards-list">
+                <!-- Dynamic Task Cards or Empty State Injected Here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Sidebar Widgets Column (Progress & Productivity cards) -->
+          <div class="dashboard-side-column">
+            <!-- Today's Progress Section -->
+            <div class="section-block">
+              <div class="progress-card">
+                <div class="progress-header">
+                  <div>
+                    <h4 class="progress-title">Today's Progress</h4>
+                    <p class="progress-sub" id="progressSubText">0 of 0 tasks completed</p>
+                  </div>
+                  <span class="progress-pct" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="progressBarFill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Productivity Motivation Widget -->
+            <div class="productivity-widget-card">
+              <div class="prod-widget-header">
+                <span class="prod-widget-icon">⚡</span>
+                <div>
+                  <h5 class="prod-widget-title">Daily Focus</h5>
+                  <p class="prod-widget-desc">Break large goals into clear subtasks and execute with precision.</p>
+                </div>
+              </div>
+              <div class="prod-widget-streak">
+                <span class="streak-icon">🔥</span>
+                <div class="streak-details">
+                  <span class="streak-title" id="sideStreakTitle">Stay Productive!</span>
+                  <span class="streak-sub" id="sideStreakSub">Complete tasks to build your streak</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 2: ALL TASKS (DEDICATED) ==================== -->
+      <section id="viewTasks" class="app-view">
+        <div class="view-header-row">
+          <div>
+            <h2 class="view-main-title">Task Manager</h2>
+            <p class="view-sub-title">Review, reorder and filter all your activities</p>
+          </div>
+          <button id="viewTasksAddBtn" class="btn btn-primary btn-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add
+          </button>
+        </div>
+
+        <!-- Search Bar inside Tasks View -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="taskSearchInputSecondary" placeholder="Search in all tasks..." autocomplete="off">
+          </div>
+        </div>
+
+        <div id="tasksViewListContainer" class="task-cards-list">
+          <!-- Mirror/Dedicated list -->
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 3: CATEGORIES ==================== -->
+      <section id="viewCategories" class="app-view">
+        <div class="view-header-row">
+          <div>
+            <h2 class="view-main-title">Categories</h2>
+            <p class="view-sub-title">Organize your lifestyle into key domains</p>
+          </div>
+        </div>
+
+        <div class="categories-matrix" id="categoriesMatrix">
+          <!-- Dynamically populated category detail cards -->
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: SETTINGS ==================== -->
+      <section id="viewSettings" class="app-view">
+        <div class="view-header-row">
+          <div>
+            <h2 class="view-main-title">Settings</h2>
+            <p class="view-sub-title">Customize your experience and data</p>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4 class="settings-group-title">Appearance</h4>
+          <div class="settings-card">
+            <div class="settings-item">
+              <div class="settings-item-info">
+                <span class="settings-item-label">Dark Mode</span>
+                <span class="settings-item-desc">Switch between crisp Light theme and sleek Dark mode</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4 class="settings-group-title">Notifications</h4>
+          <div class="settings-card">
+            <div class="settings-item">
+              <div class="settings-item-info">
+                <span class="settings-item-label">App Notifications</span>
+                <span class="settings-item-desc">Receive alerts for upcoming deadlines and streak milestones</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="notificationsToggle" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4 class="settings-group-title">Data Management</h4>
+          <div class="settings-card">
+            <div class="settings-action-row">
+              <div class="settings-item-info">
+                <span class="settings-item-label">Clear Completed Tasks</span>
+                <span class="settings-item-desc">Remove all finished tasks while preserving pending ones</span>
+              </div>
+              <button id="clearCompletedBtn" class="btn btn-outline-warning btn-sm">Clear Completed</button>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-action-row">
+              <div class="settings-item-info">
+                <span class="settings-item-label">Clear All Tasks</span>
+                <span class="settings-item-desc">Permanently erase all tasks and reset progress</span>
+              </div>
+              <button id="clearAllTasksBtn" class="btn btn-outline-danger btn-sm">Clear All</button>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-action-row">
+              <div class="settings-item-info">
+                <span class="settings-item-label">Load Starter Sample Data</span>
+                <span class="settings-item-desc">Populate demo tasks to explore features quickly</span>
+              </div>
+              <button id="loadSampleDataBtn" class="btn btn-outline-primary btn-sm">Load Demo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4 class="settings-group-title">Account Session</h4>
+          <div class="settings-card">
+            <div class="settings-action-row">
+              <div class="settings-item-info">
+                <span class="settings-item-label">Signed in as <strong class="user-name-display">Muhammad Adil</strong></span>
+                <span class="settings-item-desc user-email-display">user@taskflow.io</span>
+              </div>
+              <button type="button" id="settingsSignOutBtn" class="btn btn-outline-danger btn-sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4 class="settings-group-title">About TaskFlow</h4>
+          <div class="settings-card app-about-card">
+            <div class="about-top">
+              <img src="assets/images/logo.png" alt="TaskFlow" class="about-logo">
+              <div>
+                <h5>TaskFlow v2.4</h5>
+                <p>Modern Vanilla JS Productivity Suite</p>
+              </div>
+            </div>
+            <button id="relaunchOnboardingBtn" class="btn btn-ghost btn-block btn-sm">
+              ✨ View Onboarding Tour Again
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: USER PROFILE ==================== -->
+      <section id="viewProfile" class="app-view">
+        <div class="view-header-row">
+          <div>
+            <h2 class="view-main-title">User Profile</h2>
+            <p class="view-sub-title">Customize your personal profile, upload avatar photo and view your productivity record</p>
+          </div>
+        </div>
+
+        <div class="profile-layout-grid">
+          <!-- Left Column: Avatar Management Card -->
+          <div class="profile-avatar-card">
+            <div class="profile-avatar-banner"></div>
+            
+            <div class="profile-avatar-wrapper">
+              <div class="profile-avatar-circle" id="profileAvatarLarge">
+                <span class="profile-avatar-initials user-initials-display">MA</span>
+                <img class="profile-avatar-img user-img-display hidden" id="profileLargeImg" src="" alt="Profile Photo">
+                <label for="avatarFileInput" class="avatar-upload-overlay" title="Upload new photo">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                </label>
+              </div>
+              <input type="file" id="avatarFileInput" accept="image/*" class="hidden">
+            </div>
+
+            <div class="profile-user-summary">
+              <h3 class="profile-display-name user-name-display" id="profileSummaryName">Muhammad Adil</h3>
+              <p class="profile-display-role user-role-display" id="profileSummaryRole">Productivity Champion</p>
+              <div class="profile-badge-pill">
+                <span class="status-indicator-dot"></span>
+                <span>Active Workspace</span>
+              </div>
+            </div>
+
+            <div class="avatar-buttons-row">
+              <button type="button" id="triggerUploadBtn" class="btn btn-primary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                Upload Photo
+              </button>
+              <button type="button" id="removePhotoBtn" class="btn btn-outline-danger btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                Remove
+              </button>
+            </div>
+            <p class="avatar-note">Square JPG, PNG, or GIF. Max 3MB.</p>
+          </div>
+
+          <!-- Right Column: Personal Info Form & Stats -->
+          <div class="profile-details-column">
+            <div class="settings-card profile-form-card">
+              <div class="profile-card-header">
+                <div class="profile-card-header-icon indigo-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="profile-card-header-text">
+                  <h4 class="settings-group-title">Personal Details</h4>
+                  <p class="settings-group-desc">Manage your workspace credentials and personal information</p>
+                </div>
+              </div>
+              <form id="profileForm" class="profile-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group col-6">
+                    <label for="profileNameInput" class="form-label">Full Name <span class="required">*</span></label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                      <input type="text" id="profileNameInput" class="form-control with-icon" placeholder="Your name" value="Muhammad Adil" required>
+                    </div>
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="profileUsernameInput" class="form-label">Username</label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+                      <input type="text" id="profileUsernameInput" class="form-control with-icon" placeholder="@username" value="@es0155">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-6">
+                    <label for="profileEmailInput" class="form-label">Email Address</label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <input type="email" id="profileEmailInput" class="form-control with-icon" placeholder="user@taskflow.io" value="es0155@taskflow.io">
+                    </div>
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="profileRoleInput" class="form-label">Role / Title</label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                      <input type="text" id="profileRoleInput" class="form-control with-icon" placeholder="e.g. Lead Designer" value="Productivity Champion">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="profileBioInput" class="form-label">Bio / Daily Motto</label>
+                  <div class="input-icon-wrap textarea-wrap">
+                    <svg class="input-icon textarea-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="21" y1="6" x2="3" y2="6"></line><line x1="15" y1="12" x2="3" y2="12"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+                    <textarea id="profileBioInput" class="form-control with-icon" rows="3" placeholder="Write a short bio or daily motto...">Organize your thoughts, prioritize tasks, and execute effortlessly every single day.</textarea>
+                  </div>
+                </div>
+
+                <div class="profile-submit-row">
+                  <div class="profile-save-hint">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    <span>Auto-saved to storage</span>
+                  </div>
+                  <div class="profile-actions-right">
+                    <button type="button" id="profileSignOutBtn" class="btn btn-outline-danger btn-sm">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                      Sign Out
+                    </button>
+                    <button type="submit" id="saveProfileBtn" class="btn btn-primary btn-save-profile">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                      <span>Save Changes</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Productivity Stats Record -->
+            <div class="settings-card profile-stats-card">
+              <div class="profile-card-header flex-between">
+                <div class="profile-card-header-main">
+                  <div class="profile-card-header-icon purple-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  <div class="profile-card-header-text">
+                    <h4 class="settings-group-title">Productivity Insights</h4>
+                    <p class="settings-group-desc">Real-time performance metrics & completion record</p>
+                  </div>
+                </div>
+                <div class="stats-live-pill">
+                  <span class="pulse-dot"></span>
+                  <span>Live</span>
+                </div>
+              </div>
+
+              <div class="profile-stats-grid">
+                <!-- Stat 1: Total Tasks -->
+                <div class="profile-stat-box stat-indigo">
+                  <div class="stat-top-row">
+                    <span class="profile-stat-lbl">Total Tasks</span>
+                    <div class="stat-icon-wrap indigo">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    </div>
+                  </div>
+                  <div class="stat-main-row">
+                    <span class="profile-stat-val" id="profileStatTotal">0</span>
+                    <span class="stat-micro-badge">Created</span>
+                  </div>
+                </div>
+
+                <!-- Stat 2: Completed -->
+                <div class="profile-stat-box stat-emerald">
+                  <div class="stat-top-row">
+                    <span class="profile-stat-lbl">Completed</span>
+                    <div class="stat-icon-wrap emerald">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                  </div>
+                  <div class="stat-main-row">
+                    <span class="profile-stat-val" id="profileStatCompleted">0</span>
+                    <span class="stat-micro-badge emerald-badge">Accomplished</span>
+                  </div>
+                </div>
+
+                <!-- Stat 3: Completion Rate -->
+                <div class="profile-stat-box stat-violet">
+                  <div class="stat-top-row">
+                    <span class="profile-stat-lbl">Completion Rate</span>
+                    <div class="stat-icon-wrap violet">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="stat-main-row">
+                    <span class="profile-stat-val" id="profileStatRate">0%</span>
+                    <span class="stat-micro-badge violet-badge">Ratio</span>
+                  </div>
+                  <div class="stat-progress-track">
+                    <div class="stat-progress-bar" id="profileRateProgressBar" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <!-- Stat 4: Active Streak -->
+                <div class="profile-stat-box stat-amber">
+                  <div class="stat-top-row">
+                    <span class="profile-stat-lbl">Active Streak</span>
+                    <div class="stat-icon-wrap amber">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="stat-main-row">
+                    <span class="profile-stat-val" id="profileStatStreak">0 Days</span>
+                    <span class="stat-micro-badge amber-badge">On Fire 🔥</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==================== FLOATING GLASS BOTTOM NAVIGATION (MOBILE) ==================== -->
+    <nav class="bottom-nav" id="mobileBottomNav">
+      <button class="nav-item active" data-target="viewHome" id="navHome">
+        <div class="nav-icon-wrap">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <span class="nav-text">Home</span>
+      </button>
+
+      <button class="nav-item" data-target="viewTasks" id="navTasks">
+        <div class="nav-icon-wrap">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span class="mobile-nav-badge" id="mobileNavTasksBadge">0</span>
+        </div>
+        <span class="nav-text">Tasks</span>
+      </button>
+
+      <!-- Prominent Center Floating Add Button -->
+      <div class="nav-fab-slot">
+        <button class="fab-btn" id="mainFabBtn" aria-label="Add Task" title="Create New Task">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+
+      <button class="nav-item" data-target="viewCategories" id="navCategories">
+        <div class="nav-icon-wrap">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </div>
+        <span class="nav-text">Categories</span>
+      </button>
+
+      <button class="nav-item" data-target="viewProfile" id="navProfile">
+        <div class="nav-icon-wrap">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <span class="nav-text">Profile</span>
+      </button>
+    </nav>
+
+    </div> <!-- end .app-main-area -->
+  </div> <!-- end #appShell -->
+
+  <!-- ==================== 3. NEW TASK SCREEN / MODAL (IMAGE 2) ==================== -->
+  <div id="taskModal" class="new-task-overlay hidden" role="dialog" aria-modal="true">
+    <div class="new-task-sheet">
+      <!-- Top Mobile Navigation Header -->
+      <div class="new-task-top-bar">
+        <button type="button" id="newTaskBackBtn" class="new-task-nav-btn" aria-label="Go Back">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <h2 id="modalTitle" class="new-task-title">New Task</h2>
+        <button type="button" id="newTaskCancelBtn" class="new-task-cancel-btn">Cancel</button>
+      </div>
+
+      <div class="new-task-scrollable-content">
+        <form id="taskForm" class="new-task-form" novalidate>
+          <input type="hidden" id="editTaskId">
+
+          <!-- CARD 1: Task Title & Description -->
+          <div class="task-form-card">
+            <div class="task-card-label">TASK TITLE</div>
+            <input type="text" id="taskTitleInput" class="task-card-title-input" placeholder="Redesign Mobile Onboarding Flow" required maxlength="120" autocomplete="off">
+            <span class="field-error hidden" id="titleError">Please enter a task title</span>
+
+            <div class="task-card-label desc-label">DESCRIPTION</div>
+            <textarea id="taskDescInput" class="task-card-desc-input" rows="2" placeholder="Map out 3-step value proposition and align visual system with new brand tokens."></textarea>
+          </div>
+
+          <!-- CARD 2: Due Date & Time -->
+          <div class="task-form-card">
+            <div class="card-section-header">
+              <div class="card-section-title-wrap">
+                <svg class="card-header-icon blue-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span class="card-section-title">Due Date & Time</span>
+              </div>
+              <span class="card-section-status" id="dueDateStatusLabel">Today • 05:00 PM</span>
+            </div>
+
+            <!-- Quick Day Presets -->
+            <div class="date-pills-row">
+              <button type="button" class="date-pill-btn active" data-date-type="today" id="pillDueToday">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Today</span>
+              </button>
+              <button type="button" class="date-pill-btn" data-date-type="tomorrow" id="pillDueTomorrow">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line></svg>
+                <span>Tomorrow</span>
+              </button>
+              <button type="button" class="date-pill-btn" data-date-type="custom" id="pillDueCustom">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span id="customDatePillText">Pick Date</span>
+              </button>
+            </div>
+
+            <!-- Modern Interactive Dual Date & Time Field Cards -->
+            <div class="datetime-controls-grid">
+              <!-- Calendar Date Card -->
+              <div class="datetime-picker-card" id="datePickerCard" title="Click to choose date">
+                <div class="dt-card-top">
+                  <span class="dt-card-label">DUE DATE</span>
+                  <span class="dt-card-badge" id="dateBadgeText">Today</span>
+                </div>
+                <div class="dt-input-container">
+                  <div class="dt-icon-circle dt-icon-calendar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div class="dt-value-stack">
+                    <span class="dt-display-text" id="dateDisplayFormatted">Sep 14, 2026</span>
+                    <span class="dt-sub-text">Tap to change calendar</span>
+                  </div>
+                  <!-- Native Date Input with Seamless Overlay Trigger -->
+                  <input type="date" id="taskDueDate" class="dt-seamless-input" aria-label="Task Due Date">
+                </div>
+              </div>
+
+              <!-- Clock Time Card -->
+              <div class="datetime-picker-card" id="timePickerCard" title="Click to choose time">
+                <div class="dt-card-top">
+                  <span class="dt-card-label">DUE TIME</span>
+                  <span class="dt-card-badge dt-badge-amber" id="timeBadgeText">Evening</span>
+                </div>
+                <div class="dt-input-container">
+                  <div class="dt-icon-circle dt-icon-clock">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                  <div class="dt-value-stack">
+                    <span class="dt-display-text" id="timeDisplayFormatted">05:00 PM</span>
+                    <span class="dt-sub-text">Tap to change time</span>
+                  </div>
+                  <!-- Native Time Input with Seamless Overlay Trigger -->
+                  <input type="time" id="taskDueTime" class="dt-seamless-input" value="17:00" aria-label="Task Due Time">
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Time Presets Chips -->
+            <div class="time-presets-strip">
+              <span class="time-presets-title">Quick Times:</span>
+              <div class="time-presets-chips">
+                <button type="button" class="time-preset-btn" data-time="09:00">09:00 AM</button>
+                <button type="button" class="time-preset-btn" data-time="13:00">01:00 PM</button>
+                <button type="button" class="time-preset-btn active" data-time="17:00">05:00 PM</button>
+                <button type="button" class="time-preset-btn" data-time="20:00">08:00 PM</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3: Priority -->
+          <div class="task-form-card">
+            <div class="card-section-header">
+              <div class="card-section-title-wrap">
+                <svg class="card-header-icon blue-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                  <line x1="4" y1="22" x2="4" y2="15"></line>
+                </svg>
+                <span class="card-section-title">Priority</span>
+              </div>
+              <span class="priority-badge-indicator badge-high" id="priorityBadgeIndicator">High</span>
+            </div>
+
+            <div class="priority-segmented-control" id="prioritySelector">
+              <button type="button" class="priority-segment-btn" data-priority="Low">
+                <span class="seg-icon dash-icon">—</span>
+                <span class="seg-label">Low</span>
+              </button>
+              <button type="button" class="priority-segment-btn" data-priority="Medium">
+                <span class="seg-icon equal-icon">=</span>
+                <span class="seg-label">Medium</span>
+              </button>
+              <button type="button" class="priority-segment-btn active" data-priority="High">
+                <span class="seg-icon exclamation-icon">!</span>
+                <span class="seg-label">High</span>
+              </button>
+              <button type="button" class="priority-segment-btn" data-priority="Urgent">
+                <span class="seg-icon urgent-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+                </span>
+                <span class="seg-label">Urgent</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD 4: Category / Project -->
+          <div class="task-form-card">
+            <div class="card-section-header">
+              <div class="card-section-title-wrap">
+                <svg class="card-header-icon blue-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="card-section-title">Category / Project</span>
+              </div>
+              <span class="category-selected-preview" id="categorySelectedBadge">Product Design</span>
+            </div>
+
+            <!-- Premium Visual Category Chips -->
+            <div class="category-pills-row" id="taskModalCategories">
+              <button type="button" class="cat-chip-btn cat-chip-design active" data-category="Product Design">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 10 10 0 0 0 9.54-13.42A10 10 0 0 0 12 2z"></path>
+                    <circle cx="12" cy="8" r="1.5" fill="currentColor"></circle>
+                    <circle cx="8" cy="12" r="1.5" fill="currentColor"></circle>
+                    <circle cx="16" cy="12" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Product Design</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+
+              <button type="button" class="cat-chip-btn cat-chip-work" data-category="Work">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Work</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+
+              <button type="button" class="cat-chip-btn cat-chip-personal" data-category="Personal">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Personal</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+
+              <button type="button" class="cat-chip-btn cat-chip-study" data-category="Study">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Study</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+
+              <button type="button" class="cat-chip-btn cat-chip-shopping" data-category="Shopping">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Shopping</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+
+              <button type="button" class="cat-chip-btn cat-chip-project" data-category="Project">
+                <span class="cat-chip-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </span>
+                <span class="cat-chip-text">Project</span>
+                <span class="cat-chip-check">✓</span>
+              </button>
+            </div>
+
+            <!-- Hidden native select for form serialization / complete compatibility -->
+            <select id="taskCategorySelect" class="sr-only">
+              <option value="Product Design">Product Design</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Study">Study</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Project">Project</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- CARD 5: Subtasks -->
+          <div class="task-form-card">
+            <div class="card-section-header">
+              <div class="card-section-title-wrap">
+                <svg class="card-header-icon blue-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <path d="M3 6l2 2 4-4"></path>
+                </svg>
+                <span class="card-section-title">Subtasks</span>
+              </div>
+              <span class="subtasks-count-pill" id="subtasksCountBadge">0 of 3 done</span>
+            </div>
+
+            <div class="subtasks-interactive-list" id="subtasksBuilderList">
+              <!-- Dynamic subtasks items populated via JS -->
+            </div>
+
+            <div class="subtask-input-bar">
+              <span class="subtask-add-plus">+</span>
+              <input type="text" id="newSubtaskInput" class="subtask-text-input" placeholder="Add a subtask..." autocomplete="off">
+              <button type="button" id="addSubtaskBtn" class="subtask-add-submit-btn">Add</button>
+            </div>
+          </div>
+
+          <!-- Extra spacing to clear fixed bottom button -->
+          <div class="new-task-bottom-spacer"></div>
+
+          <!-- BOTTOM FIXED ACTION BUTTON -->
+          <div class="new-task-footer-bar">
+            <button type="submit" id="saveTaskBtn" class="new-task-submit-cta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
+              <span id="saveTaskBtnText">Create Task</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DELETE CONFIRMATION MODAL ==================== -->
+  <div id="deleteModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card modal-sm">
+      <div class="modal-alert-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+      </div>
+      <h3 class="modal-title text-center">Delete Task</h3>
+      <p class="modal-desc text-center">Are you sure you want to delete this task? This action cannot be undone.</p>
+      
+      <div class="modal-footer modal-footer-spaced">
+        <button type="button" id="cancelDeleteBtn" class="btn btn-ghost">Cancel</button>
+        <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Bar -->
+  <div id="toastNotification" class="toast hidden">
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
