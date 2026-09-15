@@ -492,41 +492,26 @@ function handleScreenFlow() {
   const currentUser = getCurrentUser();
   const isOnboarded = localStorage.getItem(STORAGE_KEY_ONBOARDED) === 'true';
 
-  // Auto transition from splash after 1.8s
-  const splashTimer = setTimeout(() => {
-    dismissSplash(currentUser, isOnboarded);
-  }, 1800);
-
-  // Tap splash screen anywhere to dismiss immediately
   if (splashScreen) {
-    splashScreen.addEventListener('click', () => {
-      clearTimeout(splashTimer);
-      dismissSplash(currentUser, isOnboarded);
-    });
-  }
-}
-
-function dismissSplash(currentUser, isOnboarded) {
-  if (!splashScreen) return;
-  splashScreen.style.opacity = '0';
-  setTimeout(() => {
     splashScreen.classList.add('hidden');
-    if (currentUser) {
-      // User is already logged in with active session -> Go straight to Main App!
-      showMainApp();
-    } else if (!isOnboarded) {
-      // First time installation/visit -> Show Onboarding Screen (Image 1)
-      showOnboarding();
+    splashScreen.style.display = 'none';
+  }
+
+  if (currentUser) {
+    // User is already logged in with active session -> Go straight to Main App!
+    showMainApp();
+  } else if (!isOnboarded) {
+    // First time installation/visit -> Show Onboarding Screen
+    showOnboarding();
+  } else {
+    // Already completed onboarding before but logged out -> Go to Sign In screen!
+    const users = getStoredUsers();
+    if (users && users.length > 0) {
+      showSignIn();
     } else {
-      // Already completed onboarding before but logged out -> Go to Sign In screen!
-      const users = getStoredUsers();
-      if (users && users.length > 0) {
-        showSignIn();
-      } else {
-        showSignUp();
-      }
+      showSignUp();
     }
-  }, 400);
+  }
 }
 
 function showOnboarding() {
