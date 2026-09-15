@@ -1,5 +1,5 @@
 {
-  "name": "TaskFlow - Task & Productivity Manager",
+  "name": "TaskFlow",
   "short_name": "TaskFlow",
   "description": "A modern, personal task and productivity manager. Organize, prioritize, and accomplish your daily tasks seamlessly.",
   "start_url": "./index.html",
