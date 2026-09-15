@@ -82,11 +82,9 @@
 
   <!-- ==================== AUTH: SIGN UP SCREEN ==================== -->
   <div id="signupScreen" class="auth-screen hidden">
-    <!-- Ambient glowing background orbs -->
+    <!-- Soft Ambient Backdrop -->
     <div class="auth-ambient-glow" aria-hidden="true">
       <div class="glow-orb glow-orb-1"></div>
-      <div class="glow-orb glow-orb-2"></div>
-      <div class="glow-orb glow-orb-3"></div>
     </div>
 
     <!-- Auth Floating Top Bar -->
@@ -110,61 +108,71 @@
         <div class="auth-showcase-column">
           <div class="showcase-badge">
             <span class="badge-pulse"></span>
-            <span>Effortless Task Management</span>
+            <span>✦ Modern Productivity Suite</span>
           </div>
           <h1 class="showcase-heading">
             Organize smarter.<br>
             <span class="showcase-gradient-text">Execute faster.</span>
           </h1>
           <p class="showcase-subtext">
-            Join thousands of professionals, students, and creators who manage high-impact tasks and keep unstoppable streaks.
+            Streamline your daily tasks, set priorities, and track milestones with zero friction.
           </p>
 
-          <!-- Floating Glass Cards Showcase -->
+          <!-- Clean Showcase Feature Stack -->
           <div class="showcase-cards-stack">
-            <!-- Glass Card 1: Streak -->
+            <!-- Card 1: Prioritization -->
             <div class="glass-preview-card streak-card">
-              <div class="streak-icon-wrap">🔥</div>
+              <div class="streak-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
               <div class="streak-info">
-                <span class="streak-title">7-Day Streak Active!</span>
-                <span class="streak-meta">94% on-time completion this week</span>
+                <span class="streak-title">Smart Task Matrix</span>
+                <span class="streak-meta">Prioritize high-impact goals automatically</span>
               </div>
-              <span class="streak-pill">Top 5%</span>
+              <span class="streak-pill">High Impact</span>
             </div>
 
-            <!-- Glass Card 2: Interactive Task Preview -->
+            <!-- Card 2: Momentum -->
             <div class="glass-preview-card task-card">
-              <div class="task-check-circle">✓</div>
-              <div class="task-info">
-                <span class="task-title">Review system tokens & UX flow</span>
-                <span class="task-due">Due Today • 4:00 PM</span>
+              <div class="task-check-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
-              <span class="task-priority-pill">HIGH</span>
+              <div class="task-info">
+                <span class="task-title">Daily Focus & Streaks</span>
+                <span class="task-due">Maintain 94%+ completion velocity</span>
+              </div>
+              <span class="task-priority-pill">ACTIVE</span>
             </div>
 
-            <!-- Glass Card 3: User Quote / Metric -->
+            <!-- Card 3: Encrypted Sync -->
             <div class="glass-preview-card stat-card-showcase">
-              <div class="stat-number">12,800+</div>
-              <div class="stat-label">Tasks completed this month with zero friction</div>
+              <div class="streak-icon-wrap icon-secure">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="streak-info">
+                <span class="streak-title">Local Encrypted Data</span>
+                <span class="streak-meta">Instant access with complete privacy</span>
+              </div>
+              <span class="streak-pill pill-secure">Secured</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Frosted Glass Form Card -->
+        <!-- Right Column: Clean Form Card -->
         <div class="auth-form-column">
           <div class="auth-glass-card">
-            <!-- Modern Segmented Pill Switcher -->
+            <!-- Segmented Pill Switcher -->
             <div class="auth-segmented-nav">
               <button type="button" class="auth-segment-btn" id="tabGoToSignIn">Sign In</button>
               <button type="button" class="auth-segment-btn active" id="tabStaySignUp">Create Account</button>
             </div>
 
             <div class="auth-card-header">
-              <h2 class="auth-card-title">Create your account ✨</h2>
-              <p class="auth-card-subtitle">Get started with your free personal workspace in seconds.</p>
+              <h2 class="auth-card-title">Create an account</h2>
+              <p class="auth-card-subtitle">Get started with your free workspace in seconds.</p>
             </div>
 
-            <!-- Social / Quick Access -->
+            <!-- Social Auth -->
             <div class="auth-social-group">
               <button type="button" class="auth-social-btn btn-google-login">
                 <svg width="18" height="18" viewBox="0 0 24 24">
@@ -192,7 +200,7 @@
                 <label for="signupNameInput" class="auth-label">Full Name</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                  <input type="text" id="signupNameInput" class="auth-input" placeholder="e.g. Muhammad Adil" required autocomplete="name">
+                  <input type="text" id="signupNameInput" class="auth-input" placeholder="Muhammad Adil" required autocomplete="name">
                 </div>
               </div>
 
@@ -200,7 +208,7 @@
                 <label for="signupEmailOrPhoneInput" class="auth-label">Email or Phone Number</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  <input type="text" id="signupEmailOrPhoneInput" class="auth-input" placeholder="name@example.com or +92 300 1234567" required autocomplete="username">
+                  <input type="text" id="signupEmailOrPhoneInput" class="auth-input" placeholder="name@example.com" required autocomplete="username">
                 </div>
               </div>
 
@@ -208,7 +216,7 @@
                 <label for="signupPasswordInput" class="auth-label">Password</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                  <input type="password" id="signupPasswordInput" class="auth-input" placeholder="Create a strong password" required autocomplete="new-password">
+                  <input type="password" id="signupPasswordInput" class="auth-input" placeholder="Create password" required autocomplete="new-password">
                   <button type="button" class="auth-pw-toggle" data-target="signupPasswordInput" aria-label="Toggle password visibility">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                   </button>
@@ -219,7 +227,7 @@
                 <label for="signupConfirmPasswordInput" class="auth-label">Confirm Password</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                  <input type="password" id="signupConfirmPasswordInput" class="auth-input" placeholder="Confirm your password" required autocomplete="new-password">
+                  <input type="password" id="signupConfirmPasswordInput" class="auth-input" placeholder="Confirm password" required autocomplete="new-password">
                   <button type="button" class="auth-pw-toggle" data-target="signupConfirmPasswordInput" aria-label="Toggle password visibility">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                   </button>
@@ -227,7 +235,7 @@
               </div>
 
               <button type="submit" id="submitSignupBtn" class="auth-cta-btn">
-                <span>Create Free Account</span>
+                <span>Create Account</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
             </form>
@@ -245,11 +253,9 @@
 
   <!-- ==================== AUTH: SIGN IN SCREEN ==================== -->
   <div id="signinScreen" class="auth-screen hidden">
-    <!-- Ambient glowing background orbs -->
+    <!-- Soft Ambient Backdrop -->
     <div class="auth-ambient-glow" aria-hidden="true">
       <div class="glow-orb glow-orb-1"></div>
-      <div class="glow-orb glow-orb-2"></div>
-      <div class="glow-orb glow-orb-3"></div>
     </div>
 
     <!-- Auth Floating Top Bar -->
@@ -273,31 +279,35 @@
         <div class="auth-showcase-column">
           <div class="showcase-badge">
             <span class="badge-pulse"></span>
-            <span>Welcome Back</span>
+            <span>✦ Welcome Back</span>
           </div>
           <h1 class="showcase-heading">
             Your tasks, goals, &amp;<br>
             <span class="showcase-gradient-text">focus await you.</span>
           </h1>
           <p class="showcase-subtext">
-            Log back in to review your priority roadmap, check off pending action items, and keep your productivity streak alive.
+            Log back in to review your roadmap, complete priority tasks, and keep your streaks active.
           </p>
 
-          <!-- Floating Glass Cards Showcase -->
+          <!-- Showcase Cards Stack -->
           <div class="showcase-cards-stack">
-            <!-- Glass Card 1: Streak -->
+            <!-- Card 1 -->
             <div class="glass-preview-card streak-card">
-              <div class="streak-icon-wrap">⚡</div>
+              <div class="streak-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
               <div class="streak-info">
                 <span class="streak-title">Daily Momentum</span>
-                <span class="streak-meta">Ready to accomplish your today's goals</span>
+                <span class="streak-meta">Ready for today's priority items</span>
               </div>
               <span class="streak-pill">On Track</span>
             </div>
 
-            <!-- Glass Card 2: Interactive Task Preview -->
+            <!-- Card 2 -->
             <div class="glass-preview-card task-card">
-              <div class="task-check-circle">✓</div>
+              <div class="task-check-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
               <div class="task-info">
                 <span class="task-title">Review sprint deliverables</span>
                 <span class="task-due">Scheduled for Today</span>
@@ -305,7 +315,7 @@
               <span class="task-priority-pill">HIGH</span>
             </div>
 
-            <!-- Glass Card 3: User Quote / Metric -->
+            <!-- Card 3: User Avatar Pill -->
             <div class="glass-preview-card stat-card-showcase">
               <div class="user-avatar-pill">
                 <span class="avatar-letter">MA</span>
@@ -318,21 +328,21 @@
           </div>
         </div>
 
-        <!-- Right Column: Frosted Glass Form Card -->
+        <!-- Right Column: Clean Form Card -->
         <div class="auth-form-column">
           <div class="auth-glass-card">
-            <!-- Modern Segmented Pill Switcher -->
+            <!-- Segmented Pill Switcher -->
             <div class="auth-segmented-nav">
               <button type="button" class="auth-segment-btn active" id="tabStaySignIn">Sign In</button>
               <button type="button" class="auth-segment-btn" id="tabGoToSignUp">Create Account</button>
             </div>
 
             <div class="auth-card-header">
-              <h2 class="auth-card-title">Welcome back 👋</h2>
-              <p class="auth-card-subtitle">Sign in to your personal workspace and tasks.</p>
+              <h2 class="auth-card-title">Welcome back</h2>
+              <p class="auth-card-subtitle">Sign in to access your personal workspace.</p>
             </div>
 
-            <!-- Social / Quick Access -->
+            <!-- Social Auth -->
             <div class="auth-social-group">
               <button type="button" class="auth-social-btn btn-google-login">
                 <svg width="18" height="18" viewBox="0 0 24 24">
@@ -359,7 +369,7 @@
                 <label for="signinEmailOrPhoneInput" class="auth-label">Email or Phone Number</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                  <input type="text" id="signinEmailOrPhoneInput" class="auth-input" required autocomplete="username">
+                  <input type="text" id="signinEmailOrPhoneInput" class="auth-input" placeholder="name@example.com" required autocomplete="username">
                 </div>
               </div>
 
@@ -370,7 +380,7 @@
                 </div>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                  <input type="password" id="signinPasswordInput" class="auth-input" placeholder="Enter your password" required autocomplete="current-password">
+                  <input type="password" id="signinPasswordInput" class="auth-input" placeholder="Enter password" required autocomplete="current-password">
                   <button type="button" class="auth-pw-toggle" data-target="signinPasswordInput" aria-label="Toggle password visibility">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                   </button>
@@ -404,11 +414,9 @@
 
   <!-- ==================== AUTH: DEDICATED FORGOT PASSWORD SCREEN ==================== -->
   <div id="forgotPasswordScreen" class="auth-screen hidden">
-    <!-- Ambient glowing background orbs -->
+    <!-- Soft Ambient Backdrop -->
     <div class="auth-ambient-glow" aria-hidden="true">
       <div class="glow-orb glow-orb-1"></div>
-      <div class="glow-orb glow-orb-2"></div>
-      <div class="glow-orb glow-orb-3"></div>
     </div>
 
     <!-- Auth Floating Top Bar -->
@@ -432,53 +440,54 @@
         <div class="auth-showcase-column">
           <div class="showcase-badge">
             <span class="badge-pulse"></span>
-            <span>Account Security</span>
+            <span>✦ Account Security</span>
           </div>
           <h1 class="showcase-heading">
             Seamless account<br>
             <span class="showcase-gradient-text">recovery &amp; reset.</span>
           </h1>
           <p class="showcase-subtext">
-            Easily recover your password with our verified instant security code. Your workspace data, tasks, and streaks will remain completely safe.
+            Recover your password with verified instant security code. Your workspace data remains 100% safe.
           </p>
 
-          <!-- Floating Security Cards -->
+          <!-- Showcase Security Cards -->
           <div class="showcase-cards-stack">
             <div class="glass-preview-card streak-card">
-              <div class="streak-icon-wrap">🔒</div>
+              <div class="streak-icon-wrap icon-secure">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
               <div class="streak-info">
                 <span class="streak-title">Secure Encrypted Session</span>
                 <span class="streak-meta">Protected with local tamper-proof encryption</span>
               </div>
-              <span class="streak-pill">Verified</span>
+              <span class="streak-pill pill-secure">Verified</span>
             </div>
 
             <div class="glass-preview-card task-card">
-              <div class="task-check-circle">🔑</div>
+              <div class="task-check-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
               <div class="task-info">
-                <span class="task-title">One-Time Security OTP Code</span>
-                <span class="task-due">Instant simulated verification</span>
+                <span class="task-title">Instant OTP Code Verification</span>
+                <span class="task-due">Immediate code generation & verification</span>
               </div>
               <span class="task-priority-pill">ACTIVE</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Frosted Glass Form Card -->
+        <!-- Right Column: Clean Form Card -->
         <div class="auth-form-column">
           <div class="auth-glass-card">
             <!-- Back to Sign In Link Header -->
             <button type="button" class="auth-back-nav" id="backToSignInFromForgotBtn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <span>Back to Sign In</span>
             </button>
 
             <div class="auth-card-header">
-              <div class="auth-header-icon-wrap">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-              </div>
-              <h2 class="auth-card-title">Reset Password</h2>
-              <p class="auth-card-subtitle">Enter your registered email or phone number to verify and update your password.</p>
+              <h2 class="auth-card-title">Reset password</h2>
+              <p class="auth-card-subtitle">Enter your registered email or phone to receive a security code.</p>
             </div>
 
             <!-- Alert Notification Box -->
@@ -491,7 +500,7 @@
                 <label for="forgotEmailOrPhoneInput" class="auth-label">Registered Email or Phone</label>
                 <div class="auth-input-wrap">
                   <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  <input type="text" id="forgotEmailOrPhoneInput" class="auth-input" placeholder="e.g. name@example.com or phone" required>
+                  <input type="text" id="forgotEmailOrPhoneInput" class="auth-input" placeholder="name@example.com" required>
                 </div>
               </div>
 
@@ -511,10 +520,10 @@
                 </div>
 
                 <div class="auth-field">
-                  <label for="forgotNewPasswordInput" class="auth-label">New Strong Password</label>
+                  <label for="forgotNewPasswordInput" class="auth-label">New Password</label>
                   <div class="auth-input-wrap">
                     <svg class="auth-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <input type="password" id="forgotNewPasswordInput" class="auth-input" placeholder="New strong password">
+                    <input type="password" id="forgotNewPasswordInput" class="auth-input" placeholder="New password">
                     <button type="button" class="auth-pw-toggle" data-target="forgotNewPasswordInput" aria-label="Toggle password">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </button>
